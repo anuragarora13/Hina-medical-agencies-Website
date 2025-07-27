@@ -1,0 +1,7 @@
+.filter-wrapper {
+    position: sticky;
+    top: 70px; /* or the height of your navbar */
+    z-index: 999; /* ✅ below navbar */
+    background: white;
+  }
+  

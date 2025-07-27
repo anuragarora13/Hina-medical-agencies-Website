@@ -1,0 +1,125 @@
+/* === Layout === */
+.products-page {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === Sticky Heading === */
+.products-heading {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #0d47a1;
+  position: sticky;
+  top: 0;
+  z-index: 997;
+  background-color: white;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* === Sticky Filter Bar === */
+.filter-wrapper {
+  position: sticky;
+  top: 80px; /* adjust based on heading height */
+  z-index: 998;
+  background-color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* === Filter Bar Inputs === */
+.filter-bar {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-bar input,
+.filter-bar select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* === Grid === */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* === Product Card === */
+.product-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eaeaea;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.product-card h2 {
+  font-size: 1.2rem;
+  color: #1565c0;
+  margin-bottom: 0.5rem;
+}
+
+.product-card p {
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* === WhatsApp Button === */
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(to right, #25d366, #128c7e);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background: linear-gradient(to right, #1ebd5f, #0f745f);
+}
+
+/* === Pagination === */
+.pagination {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  margin: 0 4px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.pagination button:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination .active {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}

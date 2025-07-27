@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+  padding-top: 80px;    /* Space for fixed navbar */
+  padding-bottom: 120px; /* Space for footer */
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ffffff80;
+  border-top: 6px solid #fff;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.page-content {
+  padding-top: 130px; /* 48px (TopBar) + ~80px (Navbar) */
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
