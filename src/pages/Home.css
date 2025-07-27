@@ -378,93 +378,71 @@ h2::after {
 
 /* Brands Section Container */
 /* === Brand Slider Wrapper === */
+
 .brands {
-  background: linear-gradient(to right, #e3f2fd, #ffffff);
-  padding: clamp(3rem, 5vw, 5rem) 1rem;
-  margin: 3rem auto;
+  background: #f0f4f8;
+  padding: 2rem;
+  text-align: center;
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  max-width: min(1300px, 80%);
-  position: relative;
+  margin: 3rem auto;
+  max-width: 1200px;
   overflow: hidden;
 }
 
-/* === Section Heading === */
 .brands h2 {
-  font-size: clamp(2.2rem, 5vw, 3rem);
-  margin-bottom: clamp(2rem, 4vw, 3rem);
-  text-align: center;
+  font-size: 2.5rem;
   color: #1e3a8a;
-  position: relative;
-  z-index: 2;
+  margin-bottom: 1.5rem;
 }
 
-/* === Slider Container === */
 .brand-slider {
+  overflow: hidden;
   position: relative;
   width: 100%;
-  padding: 1rem 0;
-  overflow: hidden;
-  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
-/* === Track wrapper (moving part) === */
 .slider-track {
   display: flex;
-  align-items: center;
-  gap: clamp(1.5rem, 3vw, 3rem);
-  animation: scroll 50s linear infinite;
-  padding: 1.5rem 0;
-  will-change: transform;
+  gap: 2rem;
+  animation: scroll 40s linear infinite;
   width: max-content;
+  align-items: center;
 }
 
 .slider-track.paused {
   animation-play-state: paused;
 }
 
-/* === Brand link/item container === */
-.slider-track a {
+.brand-link {
   flex: 0 0 auto;
-  display: block;
-  transition: all 0.3s ease;
-  border-radius: 12px;
-  outline: none;
-  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
 }
 
-/* === Focus and Hover States === */
-.slider-track a:focus-visible {
-  box-shadow: 0 0 0 3px #1e3a8a33;
+.brand-link:hover {
   transform: scale(1.05);
-}
-
-.slider-track a:hover {
-  transform: scale(1.08);
-  z-index: 2;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* === Brand Logo Styling === */
-.slider-track img {
-  width: 100%;
-  max-width: clamp(100px, 12vw, 160px);
+.brand-link img {
+  width: 120px;
   height: auto;
-  aspect-ratio: 3/2;
   object-fit: contain;
-  border-radius: 8px;
-  transition: all 0.3s ease;
 }
 
-/* === Scroll Animation === */
+/* Animation */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50%));
+    transform: translateX(-50%);
   }
 }
 

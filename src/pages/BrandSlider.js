@@ -1,37 +1,35 @@
 import React, { useState, useRef, useEffect } from 'react';
-import brands from '../data/brandsData'; // Ensure this path is correct
-import './Home.css'; // Make sure CSS below is included here
+import brands from '../data/brandsData';
+import './Home.css';
 
 const BrandSlider = () => {
     const [isPaused, setIsPaused] = useState(false);
     const sliderRef = useRef(null);
-
-    useEffect(() => {
-        const currentSlider = sliderRef.current;
-        if (!currentSlider) return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsPaused(prev => {
-                    const shouldPause = !entry.isIntersecting;
-                    return prev !== shouldPause ? shouldPause : prev;
-                });
-            },
-            { threshold: 0.1 }
-        );
-
-        observer.observe(currentSlider);
-        return () => observer.disconnect();
-    }, []);
 
     const handleImageError = (e) => {
         e.target.src = '/brands/default.png';
         e.target.alt = 'Default brand logo';
     };
 
+    // Prevent blinking by checking observer only once
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) setIsPaused(false);
+                else setIsPaused(true);
+            },
+            { threshold: 0.1 }
+        );
+        if (sliderRef.current) {
+            observer.observe(sliderRef.current);
+        }
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <section className="brands-section">
-            <div className="slider-container">
+        <section className="brands">
+            <h2>Trusted Brands</h2>
+            <div className="brand-slider">
                 <div
                     ref={sliderRef}
                     className={`slider-track ${isPaused ? 'paused' : ''}`}
@@ -39,21 +37,19 @@ const BrandSlider = () => {
                     onMouseLeave={() => setIsPaused(false)}
                 >
                     {[...brands, ...brands].map((brand, index) => (
-                        <div key={`${brand.name}-${index}`} className="brand-slide">
-                            <a
-                                href={brand.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="brand-link"
-                            >
-                                <img
-                                    src={brand.src}
-                                    alt={brand.name}
-                                    className="brand-logo"
-                                    onError={handleImageError}
-                                />
-                            </a>
-                        </div>
+                        <a
+                            href={brand.link}
+                            key={index}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="brand-link"
+                        >
+                            <img
+                                src={brand.src}
+                                alt={brand.name}
+                                onError={handleImageError}
+                            />
+                        </a>
                     ))}
                 </div>
             </div>

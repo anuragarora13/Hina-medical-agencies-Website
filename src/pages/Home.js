@@ -316,7 +316,6 @@ function Home() {
 
             {/* Brands Slider */}
             <section className="brands" data-aos="zoom-in-up" data-aos-delay="300">
-                <h2>Our Trusted Companies</h2>
                 <BrandSlider brands={BRANDS} />
             </section>
 
