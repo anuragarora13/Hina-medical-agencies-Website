@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import brands from '../data/brandsData'; // Make sure this path is correct
-import './Home.css'; // Your CSS file
+import brands from '../data/brandsData'; // Ensure this path is correct
+import './Home.css'; // Make sure CSS below is included here
 
 const BrandSlider = () => {
     const [isPaused, setIsPaused] = useState(false);
@@ -11,12 +11,17 @@ const BrandSlider = () => {
         if (!currentSlider) return;
 
         const observer = new IntersectionObserver(
-            ([entry]) => setIsPaused(!entry.isIntersecting),
+            ([entry]) => {
+                setIsPaused(prev => {
+                    const shouldPause = !entry.isIntersecting;
+                    return prev !== shouldPause ? shouldPause : prev;
+                });
+            },
             { threshold: 0.1 }
         );
 
         observer.observe(currentSlider);
-        return () => observer.unobserve(currentSlider);
+        return () => observer.disconnect();
     }, []);
 
     const handleImageError = (e) => {

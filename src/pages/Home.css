@@ -377,6 +377,7 @@ h2::after {
 /* ===== BRANDS SECTION ===== */
 
 /* Brands Section Container */
+/* === Brand Slider Wrapper === */
 .brands {
   background: linear-gradient(to right, #e3f2fd, #ffffff);
   padding: clamp(3rem, 5vw, 5rem) 1rem;
@@ -388,7 +389,7 @@ h2::after {
   overflow: hidden;
 }
 
-/* Section Heading */
+/* === Section Heading === */
 .brands h2 {
   font-size: clamp(2.2rem, 5vw, 3rem);
   margin-bottom: clamp(2rem, 4vw, 3rem);
@@ -398,29 +399,17 @@ h2::after {
   z-index: 2;
 }
 
-/* Slider Container */
+/* === Slider Container === */
 .brand-slider {
   position: relative;
   width: 100%;
   padding: 1rem 0;
   overflow: hidden;
-  mask-image: linear-gradient(
-    to right, 
-    transparent 0%, 
-    black 5%, 
-    black 95%, 
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right, 
-    transparent 0%, 
-    black 5%, 
-    black 95%, 
-    transparent 100%
-  );
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
-/* Track wrapper (moving part) */
+/* === Track wrapper (moving part) === */
 .slider-track {
   display: flex;
   align-items: center;
@@ -431,12 +420,11 @@ h2::after {
   width: max-content;
 }
 
-/* Pause animation states */
 .slider-track.paused {
   animation-play-state: paused;
 }
 
-/* Brand link/item container */
+/* === Brand link/item container === */
 .slider-track a {
   flex: 0 0 auto;
   display: block;
@@ -447,7 +435,7 @@ h2::after {
   padding: 0.5rem;
 }
 
-/* Focus and hover states */
+/* === Focus and Hover States === */
 .slider-track a:focus-visible {
   box-shadow: 0 0 0 3px #1e3a8a33;
   transform: scale(1.05);
@@ -459,7 +447,7 @@ h2::after {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Brand logo styling */
+/* === Brand Logo Styling === */
 .slider-track img {
   width: 100%;
   max-width: clamp(100px, 12vw, 160px);
@@ -470,7 +458,7 @@ h2::after {
   transition: all 0.3s ease;
 }
 
-/* Animation keyframes */
+/* === Scroll Animation === */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -480,36 +468,24 @@ h2::after {
   }
 }
 
-/* Responsive adjustments */
+/* === Responsive Adjustments === */
 @media (max-width: 768px) {
   .brands {
     padding: 2rem 1rem;
     margin: 2rem auto;
     border-radius: 16px;
   }
-  
+
   .brand-slider {
-    mask-image: linear-gradient(
-      to right, 
-      transparent 0%, 
-      black 3%, 
-      black 97%, 
-      transparent 100%
-    );
-    -webkit-mask-image: linear-gradient(
-      to right, 
-      transparent 0%, 
-      black 3%, 
-      black 97%, 
-      transparent 100%
-    );
+    mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
   }
-  
+
   .slider-track {
     gap: 1rem;
     padding: 1rem 0;
   }
-  
+
   .slider-track img {
     max-width: 100px;
     padding: 0.5rem;
@@ -1150,40 +1126,5 @@ background-color: rgba(255, 255, 255, 0.85);
     height: 45px;
     right: 20px;
     bottom: 90px;
-  }
-}
-
-@media (max-width: 768px) {
-  .brand-slider {
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 5%,
-      black 95%,
-      transparent 100%
-    );
-  }
-  
-  .slider-track {
-    gap: 1rem;
-    animation-duration: 25s;
-  }
-  
-  .slider-track img {
-    max-width: 100px;
-    padding: 0.75rem;
-  }
-}
-
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .slider-track {
-    animation: none;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  
-  .slider-track::-webkit-scrollbar {
-    display: none;
   }
 }
