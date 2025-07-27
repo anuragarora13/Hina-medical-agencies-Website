@@ -412,7 +412,7 @@ function Home() {
                 data-aos-delay="800"
                 aria-label="Contact us on WhatsApp"
             >
-                <img src="/icons/whatsapp.svg" alt="WhatsApp" loading="lazy" />
+                <img src="/icons/Whatsapp.svg" alt="WhatsApp" loading="lazy" />
             </a>
 
             <a
